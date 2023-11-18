@@ -9,8 +9,14 @@ const helmet = require('helmet');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const sanitizeRequestData = require('./middlewares/sanitize-request-data');
 
-const sequelize = require('./utilities/database');
+const database = require('./utilities/database');
+const User = require('./models/users');
+const Expense = require('./models/expenses');
+
+const userRouter = require('./routes/user');
+const expenseRouter = require('./routes/expense');
 
 const app = express();
 
@@ -22,6 +28,9 @@ app.use(cors());
 
 // Parsing request body JSON data
 app.use(bodyParser.json());
+
+// Sanitizing incoming data for security threats using custom defined middleware
+app.use(sanitizeRequestData);
 
 // create a write stream for error logs (in append mode)
 const errorLogStream = fs.createWriteStream(
@@ -59,11 +68,20 @@ app.use(
   }),
 );
 
+// Route for user
+app.use('/user', userRouter);
+
+// Route for expense
+app.use('/expense', expenseRouter);
+
 // if request does not matches any route 404 response sent
 app.use('/', (req, res) => res.status(404).send({ message: 'Path not found' }));
 
+// Adding associations between database tables
+User.hasMany(Expense);
+
 // Creating connection with the database & listen on port for requests
-sequelize
+database
   .sync()
   .then(() => {
     app.listen(process.env.PORT || 3000);

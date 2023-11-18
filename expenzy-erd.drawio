@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-11-08T09:40:56.585Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="mTZru63sWo6h7IcJ5Hno" version="22.0.8" type="device">
+<mxfile host="app.diagrams.net" modified="2023-11-18T12:06:33.794Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="Dt99Ol9u1LESUIComfuP" version="22.1.3" type="device">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="880" dy="478" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="503" dy="267" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -186,31 +186,31 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="gnkWDJHNAUFsgTuum1Hc-36" value="POST /users/signup" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="80" y="770" width="120" height="80" as="geometry" />
+          <mxGeometry x="70" y="610" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="gnkWDJHNAUFsgTuum1Hc-37" value="Parse FormData" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="240" y="770" width="120" height="80" as="geometry" />
+          <mxGeometry x="230" y="610" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="gnkWDJHNAUFsgTuum1Hc-38" value="Sanitize Form Data" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="400" y="770" width="120" height="80" as="geometry" />
+          <mxGeometry x="390" y="610" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="gnkWDJHNAUFsgTuum1Hc-39" value="Validate Data" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="560" y="770" width="120" height="80" as="geometry" />
+          <mxGeometry x="550" y="610" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="gnkWDJHNAUFsgTuum1Hc-40" value="If Data is OK&lt;br&gt;Store data in database" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="560" y="920" width="120" height="80" as="geometry" />
+          <mxGeometry x="550" y="760" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="gnkWDJHNAUFsgTuum1Hc-41" value="If Data is !OK return error" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="710" y="770" width="120" height="80" as="geometry" />
+          <mxGeometry x="700" y="610" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="gnkWDJHNAUFsgTuum1Hc-42" value="Return user created 201 status" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="410" y="920" width="120" height="80" as="geometry" />
+          <mxGeometry x="400" y="760" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="gnkWDJHNAUFsgTuum1Hc-43" value="POST /users&lt;br&gt;route" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="90" y="920" width="120" height="80" as="geometry" />
+          <mxGeometry x="80" y="760" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="gnkWDJHNAUFsgTuum1Hc-44" value="Controller signup" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="250" y="920" width="120" height="80" as="geometry" />
+          <mxGeometry x="240" y="760" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="gnkWDJHNAUFsgTuum1Hc-47" value="" style="group" parent="1" vertex="1" connectable="0">
           <mxGeometry x="100" y="410" width="270" height="80" as="geometry" />
@@ -236,8 +236,14 @@
         <mxCell id="gnkWDJHNAUFsgTuum1Hc-57" value="createJSONToken" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="400" y="410" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="vbM0zJSST0s5E4vhIPBC-1" value="match password" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="vbM0zJSST0s5E4vhIPBC-1" value="match password" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="710" y="520" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gZiFu7mpXJy3upIb7o1--1" value="On Page Load" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="880" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gZiFu7mpXJy3upIb7o1--2" value="validate if user is signed in" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="880" width="100" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
