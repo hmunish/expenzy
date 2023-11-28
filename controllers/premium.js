@@ -64,7 +64,7 @@ exports.getBudget = async (req, res) => {
   try {
     // eslint-disable-next-line max-len
     const [income, expense] = await Promise.allSettled([getIncomeGroupsTotals(req.user.id), getExpenseGroupsTotals(req.user.id)]);
-    return res.status(200).send({ income: income.value, expense: expense.value });
+    return res.status(200).send({ income: income.value[0], expense: expense.value[0] });
   } catch (error) {
     return res.status(501).send({ message: error.message });
   }
