@@ -1,6 +1,21 @@
 const Razorpay = require('razorpay');
 const Order = require('../models/orders');
 const User = require('../models/users');
+const sequelize = require('../utilities/database');
+
+const getIncomeGroupsTotals = async (userId, noOfGroups = 3) => {
+  const groups = await sequelize.query(
+    `SELECT category, SUM(amount) as total FROM expenses WHERE userId = ${userId} AND amount > 0 GROUP BY category ORDER BY total DESC LIMIT ${noOfGroups}`,
+  );
+  return groups;
+};
+
+const getExpenseGroupsTotals = async (userId, noOfGroups = 3) => {
+  const groups = await sequelize.query(
+    `SELECT category, SUM(amount) as total FROM expenses WHERE userId = ${userId} AND amount < 0 GROUP BY category ORDER BY total ASC LIMIT ${noOfGroups}`,
+  );
+  return groups;
+};
 
 exports.buyPremium = async (req, res) => {
   try {
@@ -40,6 +55,16 @@ exports.updateOrderStatus = async (req, res) => {
       );
     }
     return res.status(200).send({ message: 'Request successfull' });
+  } catch (error) {
+    return res.status(501).send({ message: error.message });
+  }
+};
+
+exports.getBudget = async (req, res) => {
+  try {
+    // eslint-disable-next-line max-len
+    const [income, expense] = await Promise.allSettled([getIncomeGroupsTotals(req.user.id), getExpenseGroupsTotals(req.user.id)]);
+    return res.status(200).send({ income: income.value, expense: expense.value });
   } catch (error) {
     return res.status(501).send({ message: error.message });
   }
