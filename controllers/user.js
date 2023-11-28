@@ -63,9 +63,11 @@ exports.signin = async (req, res) => {
       try {
         if (err) throw err;
         if (result) {
+          isUser.password = null;
           return res.status(200).send({
             message: 'User successfully authorized',
             authorization: getJWT(isUser.id),
+            user: isUser,
           });
         }
         return res.status(401).send({ message: "Password doesn't match" });

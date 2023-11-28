@@ -22,7 +22,7 @@ exports.authorization = async (req, res, next) => {
     // If user exist attach user with current request & call next middleware in the route
     req.user = user;
     return next();
-  } catch (err) {
-    return res.status(500).send({ message: 'Error authorizing user' });
+  } catch (error) {
+    return res.status(401).send({ message: 'User not authorized' });
   }
 };

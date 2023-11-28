@@ -51,6 +51,9 @@ exports.getTransactions = async (req, res) => {
       ...(limit ? { limit } : {}),
       ...(page ? { offset: (page - 1) * limit } : {}),
       where: { userId: req.user.id },
+      order: [
+        ['createdAt', 'DESC'],
+      ],
     });
 
     // Responding success with all fetched expenses
