@@ -30,6 +30,7 @@
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
     "mysql2": "^3.6.3",
+    "razorpay": "^2.9.2",
     "sequelize": "^6.34.0",
     "validator": "^13.11.0"
   }

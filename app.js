@@ -14,9 +14,11 @@ const sanitizeRequestData = require('./middlewares/sanitize-request-data');
 const database = require('./utilities/database');
 const User = require('./models/users');
 const Expense = require('./models/expenses');
+const Order = require('./models/orders');
 
 const userRouter = require('./routes/user');
 const expenseRouter = require('./routes/expense');
+const premiumRouter = require('./routes/premium');
 
 const app = express();
 
@@ -74,11 +76,15 @@ app.use('/user', userRouter);
 // Route for expense
 app.use('/expense', expenseRouter);
 
+// Route for premium
+app.use('/premium', premiumRouter);
+
 // if request does not matches any route 404 response sent
 app.use('/', (req, res) => res.status(404).send({ message: 'Path not found' }));
 
 // Adding associations between database tables
 User.hasMany(Expense);
+Order.belongsTo(User);
 
 // Creating connection with the database & listen on port for requests
 database
